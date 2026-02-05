@@ -1,0 +1,5 @@
+/.quarto/
+**/*.quarto_ipynb
+
+# Mac Stuff
+*.DS_Store

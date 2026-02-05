@@ -1,0 +1,86 @@
+---
+title: "Interactive Data Viz"
+---
+
+# Libraries
+
+```{r library}
+#| message: false
+
+library(tidyverse)
+library(plotly)
+library(RColorBrewer)
+library(scales)
+library(DT)
+library(here)
+```
+
+
+## Load the NPS data
+
+```{r data import}
+#| messages: false
+
+ca_np_long <- here("data_processed", "nps_ca-np-rec-visit_long.csv") %>%
+  read_csv()
+
+```
+Add the decade 
+
+```{r decadal}
+ca_np_decade <- ca_np_long %>%
+  filter(Year > 1979) %>%                # We only have 1979 in the 70s
+  mutate(Decade = Year - (Year %% 10),
+         Month = factor(Month, levels = month.abb, labels = month.abb)
+         ) %>%
+  relocate(Decade, .after = Park)
+```
+
+
+Compute the decadal average
+
+```{r decadal average}
+ca_np_decade_avg <- ca_np_decade %>%
+  group_by(Park, Decade, Month) %>%
+  summarise(Decadal_avg = as.integer(mean(NoVisitors, na.rm=TRUE))) %>%
+  ungroup()
+```
+
+## Let's have a look at the data for the Channel Islands
+
+Filter for this specific park
+
+```{r channel island}
+channel_island_data <- ca_np_decade_avg %>% 
+  filter(Park == "Channel Islands")
+```
+
+Make it an interactive table using the `DT` R package:
+
+```{r datatable}
+channel_island_data %>% 
+  select(-Park) %>%
+  datatable(caption = 'Table 1: NPS Channel Island - Decadal Average of monthly visitors')
+```
+
+
+```{r}
+
+channel_island_p <- ggplot(data = channel_island_data, 
+         mapping = aes(x = Month, y = Decadal_avg, group = Decade, color = as.character(Decade))) +
+  geom_line() +
+  scale_color_brewer(name = "Decade", palette = "Greens") +
+  scale_y_continuous(labels = comma) + 
+  ggtitle("NPS Channel Island - Decadal Average of monthly visitors") +
+  theme_bw() +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank()) 
+
+channel_island_p
+  
+```
+
+```{r}
+ggplotly(channel_island_p)
+```
+
+
