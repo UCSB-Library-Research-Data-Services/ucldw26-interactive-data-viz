@@ -7,7 +7,9 @@ title: "Interactive Data Viz"
 ```{r library}
 #| message: false
 
-library(tidyverse)
+library(readr)
+library(dplyr)
+library(ggplot2)
 library(plotly)
 library(RColorBrewer)
 library(scales)
