@@ -1,0 +1,78 @@
+---
+title: "Examples"
+---
+
+## Interactive Visualization Examples
+
+Here are some examples of interactive data visualizations.
+
+### Example 1: Interactive Scatter Plot
+
+```{python}
+#| echo: true
+import plotly.express as px
+import pandas as pd
+
+# Create sample data
+df = pd.DataFrame({
+    'x': range(1, 11),
+    'y': [2, 4, 5, 4, 6, 7, 8, 7, 9, 10],
+    'category': ['A', 'B', 'A', 'B', 'A', 'B', 'A', 'B', 'A', 'B']
+})
+
+# Create interactive scatter plot
+fig = px.scatter(df, x='x', y='y', color='category',
+                 title='Interactive Scatter Plot',
+                 labels={'x': 'X Value', 'y': 'Y Value'})
+fig.show()
+```
+
+### Example 2: Bar Chart
+
+```{python}
+#| echo: true
+import plotly.express as px
+
+# Sample data
+data = {
+    'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    'Sales': [120, 150, 180, 170, 200, 220]
+}
+df = pd.DataFrame(data)
+
+# Create bar chart
+fig = px.bar(df, x='Month', y='Sales',
+             title='Monthly Sales',
+             color='Sales',
+             color_continuous_scale='Blues')
+fig.show()
+```
+
+### Example 3: Line Chart with Multiple Series
+
+```{python}
+#| echo: true
+import plotly.graph_objects as go
+import numpy as np
+
+# Generate data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create figure
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=x, y=y1, mode='lines', name='sin(x)'))
+fig.add_trace(go.Scatter(x=x, y=y2, mode='lines', name='cos(x)'))
+
+fig.update_layout(
+    title='Trigonometric Functions',
+    xaxis_title='X',
+    yaxis_title='Y'
+)
+fig.show()
+```
+
+## Try It Yourself
+
+Feel free to experiment with the code above and create your own visualizations!

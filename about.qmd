@@ -1,0 +1,28 @@
+---
+title: "About"
+---
+
+## About This Project
+
+This project demonstrates interactive data visualization techniques using modern tools and libraries.
+
+### Goals
+
+- Provide clear examples of interactive visualizations
+- Showcase best practices in data visualization
+- Offer educational resources for learning data viz
+
+### Technologies Used
+
+- **Quarto**: For creating this website
+- **Python**: For data analysis and visualization
+- **JavaScript**: For interactive components
+- **Plotly, Altair, Bokeh**: For interactive charts
+
+### Contributing
+
+This is an open project. Contributions are welcome!
+
+## Contact
+
+For questions or suggestions, please open an issue on the GitHub repository.

@@ -1,0 +1,45 @@
+---
+title: "Interactive Data Visualization"
+---
+
+## Welcome
+
+This website showcases interactive data visualization techniques and examples.
+
+### What You'll Find Here
+
+- **Interactive Examples**: Explore various data visualization techniques
+- **Tutorials**: Learn how to create your own interactive visualizations
+- **Resources**: Links to helpful tools and libraries
+
+### Getting Started
+
+Browse through the navigation menu to explore different sections:
+
+- Check out the [Examples](examples.qmd) page to see interactive visualizations in action
+- Learn more [About](about.qmd) this project
+
+## Quick Example
+
+```{python}
+#| echo: true
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Create sample data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create plot
+plt.figure(figsize=(10, 6))
+plt.plot(x, y, linewidth=2)
+plt.title('Simple Sine Wave')
+plt.xlabel('X axis')
+plt.ylabel('Y axis')
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+---
+
+*This site is built with [Quarto](https://quarto.org).*
