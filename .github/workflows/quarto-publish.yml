@@ -28,6 +28,7 @@ jobs:
           packages:
             any::readr
             any::dplyr
+            any::ggplot2
             any::plotly
             any::RColorBrewer
             any::tidyverse
