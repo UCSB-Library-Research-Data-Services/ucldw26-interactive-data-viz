@@ -26,7 +26,8 @@ jobs:
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           packages:
-            any::tidyverse
+            any::readr
+            any::dplyr
             any::plotly
             any::RColorBrewer
             any::tidyverse
