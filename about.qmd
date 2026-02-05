@@ -16,8 +16,8 @@ This project demonstrates interactive data visualization techniques using modern
 
 - **Quarto**: For creating this website
 - **Python**: For data analysis and visualization
-- **JavaScript**: For interactive components
-- **Plotly, Altair, Bokeh**: For interactive charts
+- **Matplotlib**: For static visualizations
+- **Plotly**: For interactive charts and graphs
 
 ### Contributing
 
