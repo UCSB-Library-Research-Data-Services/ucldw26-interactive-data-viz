@@ -11,23 +11,46 @@ library(shiny)
 
 # Define UI for application that draws a histogram
 fluidPage(
-
+    
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
+    titlePanel("CA National Park Visitor Data"),
+    
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
+            selectInput("myPark", "What's your favourite park in CA?",
+                        choices = unique(ca_np_decade_avg$Park),
+                        selected = "Channel Islands",
+                        multiple = FALSE
+            ),
+            
+            radioButtons("myTime", "Choose the number of years of aggregation:",
+                         choices = list(5,10, 20),
+                         selected = "10",
+                         multiple = FALSE
+            )
+        )
+        ,
+        
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
-        )
-    )
+            tabsetPanel(type = "tabs",
+                        
+                        # Tab 1
+                        tabPanel("ggplot Tab", 
+                                 br(),
+                                 plotOutput("parkPlot")
+                        ),
+                        
+                        # Tab 2
+                        tabPanel("Plotly Tab", 
+                                 br(),
+                                 # plotlyOutput("plotly")
+                                 plotOutput("parkPlot")
+                        )
+                        
+            )    # closes tabset
+        )        # closes main panel
+    )            # closes sidebar layout
 )
+
