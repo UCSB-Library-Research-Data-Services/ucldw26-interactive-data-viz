@@ -8,6 +8,12 @@
 #
 
 library(shiny)
+library(tidyverse)
+library(plotly)
+library(here)
+library(DT)
+library(scales)
+
 
 # Define UI for application that draws a histogram
 fluidPage(
@@ -21,7 +27,7 @@ fluidPage(
     sidebarLayout(
         sidebarPanel(
             selectInput("myPark", "What's your favourite park in CA?",
-                        choices = unique(ca_np_long$Park),
+                        choices = c("Channel Islands", "Yosemite"), #unique(ca_np_long$Park),
                         selected = "Channel Islands",
                         multiple = FALSE
             ),

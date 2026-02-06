@@ -7,27 +7,20 @@
 #    https://shiny.posit.co/
 #
 
-library(shiny)
-library(tidyverse)
-library(plotly)
-library(here)
-library(DT)
-library(scales)
-
 ## Read the data ----
 
+
 # Path
-data_path <- here("d2d-shiny", "data_processed", "nps_ca-np-rec-visit_long.csv")
+data_path <- file.path("data_processed", "nps_ca-np-rec-visit_long.csv")
+
 # Read data in
 ca_np_long <-  data_path %>%
     read_csv() %>%
     filter(Year > 1979 & Year < 2026)       # We only have 1979 in the 70s and partial 26
 
-
-
 # Define server logic required to plot
 function(input, output, session) {
-    
+ 
     # # Server Side: Use renderDT
     # output$my_table <- renderDT({
     #     
