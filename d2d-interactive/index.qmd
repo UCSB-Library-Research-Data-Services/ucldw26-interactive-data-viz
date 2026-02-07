@@ -71,7 +71,7 @@ channel_island_data %>%
 channel_island_p <- ggplot(data = channel_island_data, 
          mapping = aes(x = Month, y = Decadal_avg, group = Decade, color = as.character(Decade))) +
   geom_line() +
-  scale_color_brewer(name = "Decade", palette = "Greens") +
+  scale_color_discrete(name = "Decade", palette = c("#C7E9C0", "#A1D99B", "#74C476", "#238B45", "#005A32")) +
   scale_y_continuous(labels = comma) + 
   ggtitle("NPS Channel Island - Decadal Average of monthly visitors") +
   theme_bw() +
@@ -82,7 +82,7 @@ channel_island_p
 ```
 
 ```{r}
-ggplotly(channel_island_p)
+ggplotly(channel_island_p, tooltip = c("Decade", "x", "y"))
 ```
 
 
