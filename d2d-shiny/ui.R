@@ -21,7 +21,7 @@ fluidPage(
     # Application title
     titlePanel("CA National Park Visitor Data"),
     
-    # DTOutput("my_table"),
+
     
     # # Sidebar with a slider input for number of bins
     sidebarLayout(
@@ -54,7 +54,14 @@ fluidPage(
                                  br(),
                                  plotlyOutput("plotly")
                                  # plotOutput("parkPlot")
-                        )
+                        ),
+                        # Tab 3
+                        tabPanel("Table",
+                                 br(),
+                                 DTOutput("my_table")
+                                 # plotOutput("parkPlot")
+                        ),
+                    
 
             )    # closes tabset
         )        # closes main panel

@@ -22,13 +22,31 @@ ca_np_long <-  data_path %>%
 function(input, output, session) {
  
     # # Server Side: Use renderDT
-    # output$my_table <- renderDT({
-    #     
-    #     # You can pass standard data frames or matrices here
-    #     datatable(ca_np_long, 
-    #               options = list(pageLength = 5), # Show only 5 rows by default
-    #               rownames = FALSE)              # Hide row names
-    # })
+    output$my_table <- renderDT({
+        
+        # Compute the decade of each year
+        ca_np_decade <- ca_np_long %>%
+            mutate(Decade = Year - (Year %% as.integer(input$myTime)),
+                   Month = factor(Month, levels = month.abb, labels = month.abb)
+            ) %>%
+            relocate(Decade, .after = Park)
+        
+        # Compute the decadal average for each month per park
+        ca_np_decade_avg <- ca_np_decade %>%
+            group_by(Park, Decade, Month) %>%
+            summarise(Decadal_avg = as.integer(mean(NoVisitors, na.rm=TRUE))) %>%
+            ungroup()
+        
+        # filter park based on selection
+        park_data <- ca_np_decade_avg %>%
+            filter(Park == input$myPark)
+        
+
+        # You can pass standard data frames or matrices here
+        datatable(park_data,
+                  options = list(pageLength = 50), # Show only 5 rows by default
+                  rownames = FALSE,)              # Hide row names
+    })
 
     output$parkPlot <- renderPlot({
         # Compute the decade of each year
