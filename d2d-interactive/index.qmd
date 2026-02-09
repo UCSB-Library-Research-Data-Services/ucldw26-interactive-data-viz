@@ -1,8 +1,6 @@
 ---
 title: "From Static to Interactive: Exploring Interactive Data Visualization"
 subtitle: "Part of Data to Discovery (Winter 2026) & UCLDW | Feb 12, 2026"
-editor_options: 
-  chunk_output_type: console
 ---
 
 <br/>
@@ -38,14 +36,22 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
+here::i_am("d2d-interactive/index.qmd")
+
 # import and view data in wide format
-ca_np_wide <- here("d2d-interactive", "data_processed", "nps_ca-np-rec-visit_wide.csv") %>%
+ca_np_wide_path <- here("d2d-interactive", "data_processed", "nps_ca-np-rec-visit_wide.csv")
+
+ca_np_wide <- ca_np_wide_path %>% 
   read_csv()
+
 head(ca_np_wide)
 
 # import and view data in long format
-ca_np_long <- here("d2d-interactive", "data_processed", "nps_ca-np-rec-visit_long.csv") %>%
+ca_np_long_path <- here("d2d-interactive", "data_processed", "nps_ca-np-rec-visit_long.csv") 
+
+ca_np_long <- ca_np_long_path %>%
   read_csv()
+
 head(ca_np_long)
 ```
 
