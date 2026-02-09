@@ -11,7 +11,11 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: "About"
+    right:
+      - icon: github
+        href: https://github.com/UCSB-Library-Research-Data-Services/ucldw26-interactive-data-viz
 
 format:
   html:
@@ -19,6 +23,7 @@ format:
       - cosmo
       - brand
     css: styles.css
+    page-layout: full
     toc: true
 
 
