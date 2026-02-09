@@ -34,7 +34,7 @@ fluidPage(
             ),
 
             radioButtons("myTime", "Choose the number of years of aggregation:",
-                         choices = list(5,10, 20),
+                         choices = list(1, 5, 10, 20),
                          selected = "10"
             )
         )
