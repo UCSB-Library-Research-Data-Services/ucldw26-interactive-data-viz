@@ -28,7 +28,7 @@ fluidPage(
         sidebarPanel(
             selectInput("myPark", "What's your favourite park in CA?",
                         # choices = c("Channel Islands", "Yosemite"), 
-                        choices = unique(ca_np_long$Park),
+                        choices = c("Channel Islands", "Joshua Tree","Kings Canyon","Lassen Volcanic", "Pinnacles","Redwood","Sequoia","Yosemite"),
                         selected = "Channel Islands",
                         multiple = FALSE
             ),
