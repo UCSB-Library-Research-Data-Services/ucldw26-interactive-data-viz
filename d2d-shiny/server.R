@@ -49,7 +49,7 @@ function(input, output, session) {
         labs(color = "Time Window") +
         scale_color_viridis_d() +
         scale_y_continuous(labels = comma) +
-        ggtitle("Monthly Visitors to Channel Islands") +
+        ggtitle("Monthly Visitors") +
         theme_bw() +
         theme(axis.title.x = element_blank(), axis.title.y = element_blank())
       
@@ -67,7 +67,7 @@ function(input, output, session) {
         labs(color = "Time Window") +
         scale_color_viridis_d() +
         scale_y_continuous(labels = comma) +
-        ggtitle("Monthly Visitors to Channel Islands") +
+        ggtitle("Monthly Visitors") +
         theme_bw() +
         theme(axis.title.x = element_blank(), axis.title.y = element_blank())
       
