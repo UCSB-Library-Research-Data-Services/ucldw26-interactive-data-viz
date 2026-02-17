@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/1150874814.svg)](https://doi.org/10.5281/zenodo.18675471)
+
 # From Static to Dynamic: Exploring Interactive Data Visualizations 
 
 ## Workshop Description
